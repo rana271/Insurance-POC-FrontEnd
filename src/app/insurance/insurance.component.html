@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>TAL TEST : Death Premium Calculator (By Rana De)</h1>
+    <hr />
+    <form #f="ngForm">
+        <div class="form-group">
+            <label for="name">Name : </label>
+            <input type="text" required [(ngModel)]="name" name="name" class="form-control" id="name"
+                #nameControl="ngModel">
+            <div *ngIf="nameControl.errors?.required">
+                Name is required.
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date Of Birth : Format (MM-DD-YYYY)</label>
+                <input type="text" required class="form-control" id="dob" name="dob" [(ngModel)]="dob"
+                    #dobControl="ngModel" (change)="CalculateAge()">
+            </div>
+            <div *ngIf="dobControl.errors?.required">
+                DOB is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age : </label>
+            <input type="text" [(ngModel)]="age" name="age" class="form-control" id="age" readonly>
+        </div>
+
+
+        <div class="form-group">
+            <label for="occupation">Occupation : </label>
+            <select class='select-option' required [(ngModel)]="selected" name="selected" class="form-control"
+                id="selected" #occupationControl="ngModel" (change)='onOptionsSelected($event)'>
+                <option class='option' value="Select">Select Occupation</option>
+                <option class='option' *ngFor='let option of OccupationList' [value]="option.Rating">
+                    {{option.Occupation}}</option>
+            </select>
+            <div *ngIf="occupationControl.errors?.required">
+                Please select any Occupation
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="death">Death : </label>
+            <input type="text"   class="form-control" id="death" name="death" [(ngModel)]="death"
+                #deathControl="ngModel"  (change)="InvokeCalulatePremium()">
+            <div *ngIf="deathControl.errors?.required">
+                Death amount required
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="Caption">Death Premium : </label>
+            <label for="result">{{TotalPremium}}</label>
+        </div>
+        <hr />
+        
+    </form>
+
+</div>
