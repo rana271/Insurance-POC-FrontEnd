@@ -22,7 +22,7 @@ export class InsuranceComponent {
   OccupationList: any[] = [
     { Occupation: "Cleaner", Rating: 'Light Manual' },
     { Occupation: "Doctor", Rating: 'Professional' },
-    { Occupation: "Author", Rating: 'Heavy Manual' },
+    { Occupation: "Author", Rating: 'White Collar' },
     { Occupation: "Farmer", Rating: 'Heavy Manual' },
     { Occupation: "Mechanic", Rating: 'Heavy Manual' },
     { Occupation: "Florist", Rating: 'Light Manual' }
